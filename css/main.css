@@ -1,3 +1,15 @@
 body{
 	text-align: center;
 }
+
+
+#timer {
+	font-size: 2em;
+}
+
+#minusTimer, #plusTimer {
+	font-size: 2em;
+	border: solid black 1px;
+	border-radius: 5px;
+	padding: 5px 10px;
+}
