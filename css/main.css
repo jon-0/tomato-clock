@@ -24,3 +24,8 @@ body{
 #minusTimer:hover, #plusTimer:hover {
 	cursor: pointer;
 }
+
+footer {
+	font-size: 0.9em;
+	margin-top: 15em;
+}
