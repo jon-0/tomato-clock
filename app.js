@@ -2,19 +2,23 @@
 var timer = $("#timer");
 var timerHTML = $("#timer").html();
 var startButton = $("#startButton");
+var resetButton = $("#resetButton");
+var $minusTimer = $("#minusTimer");
+var $plusTimer = $("#plusTimer");
 
 //initialize display
 timer.html(timerHTML);
+resetButton.hide();
 
 // add functionality to plus and minus buttons
-	$("#minusTimer").click(function(){
+	$minusTimer.click(function(){
 		// decrease timer variable
 		timerHTML--;
 		console.log(timerHTML);
 		timer.html(timerHTML);
 	});
 
-	$("#plusTimer").click(function(){
+	$plusTimer.click(function(){
 	// increase timer variable
 		timerHTML++;
 		console.log(timerHTML);
@@ -33,6 +37,12 @@ function convert_time (){
 
 startButton.click(function(){
 	console.log("start button was clicked.")
+	startButton.hide();
+	resetButton.show();
+
+	// hide timer settings while clock is running
+	$plusTimer.hide();
+	$minusTimer.hide();
 
 	var seconds_left = convert_time();
 
@@ -50,29 +60,15 @@ startButton.click(function(){
     	} else {
     		--seconds_left;
     	}
-	}, 1000)	
+	}, 1000);
 
+	//reset the clock and allow the user to change the timer setting again
+	resetButton.click(function(){
+		$plusTimer.show();
+		$minusTimer.show();
+		startButton.show();
+		resetButton.hide();
+		clearInterval(interval);
+		timer.html(timerHTML);
+	});
 });
-
-
-
-// notes
-/* 
-
-at the end of the timer, turn button into "reset" and when pressed it should reset the clock and allow
-the user to change the timer setting again
-
-disable timer length changing while clock is running
-
-
-*/
-
-
-
-
-
-
-
-
-
-
